@@ -250,7 +250,7 @@ The options and the block are optional.
    If you would force a different :quote_char instead (setting it to a non-used character), then the import would be up to 5-times slower than using `:force_simple_split`.
 
 #### Known Issues:
- * if you are using 1.8.7 versions of Ruby, JRuby, or Ruby Enterprise Edition, `smarter_csv` will have problems with double-quoted fields, because of a bug in an underlying library.
+ * if you are using JRuby, or Ruby Enterprise Edition, `smarter_csv` will have problems with double-quoted fields, because of a bug in an underlying library.
 
 
 ## See also:

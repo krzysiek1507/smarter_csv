@@ -9,16 +9,17 @@ fixture_path = 'spec/fixtures'
 # same as binary_file_spec , but reading the file with strings as keys
 
 describe 'be_able_to' do
-  it 'loads_binary_file_with_strings_as_keys' do 
-    options = {:col_sep => "\cA", :row_sep => "\cB", :comment_regexp => /^#/, :strings_as_keys => true}
+  it 'loads_binary_file_with_strings_as_keys' do
+    options = { :col_sep => "\cA", :row_sep => "\cB", :comment_regexp => /^#/, :strings_as_keys => true }
     data = SmarterCSV.process("#{fixture_path}/binary.csv", options)
-    data.flatten.size.should == 8
+    expect(data.flatten.size).to eq 8
+
     data.each do |item|
       # all keys should be strings
-      item.keys.each{|x| x.class.should be == String}
-      item['timestamp'].should == 1381388409
-      item['item_id'].class.should be == Fixnum
-      item['name'].size.should be > 0
+      item.keys.each { |x| expect(x.class).to be String }
+      expect(item['timestamp']).to eq 1381388409
+      expect(item['item_id'].class).to be Fixnum
+      expect(item['name'].size).to be > 0
     end
   end
 end
